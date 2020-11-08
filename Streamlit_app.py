@@ -5,8 +5,7 @@ import streamlit as st
 import SessionState
 
 
-def Camera(x):
-    cap = cv2.VideoCapture(x)
+def Camera(cap):
     frames1 = st.empty()
     button1 = st.button('DONE', key=0)
     while cap.isOpened() and not button1:
@@ -14,7 +13,7 @@ def Camera(x):
     if button1:
         time.sleep(2)
         background = cap.read()[1]
-    return cap, background
+    return background
 
 
 def Mask(cap):
@@ -88,8 +87,9 @@ if option == 0:
     dict2 = {'Front': 0, 'Back': 1}
     x = st.selectbox('Choose an option for your input camera', ('Front', 'Back'))
     x = dict2[x]
-
-    cap, background = Camera(x)
+    cap = cv2.VideoCapture(x)
+    
+    background = Camera(cap)
     session_state.background = background
     session_state.cap = cap
     st.image(background, channels="BGR")
