@@ -12,8 +12,7 @@ def Camera(cap):
         frames1.image(cap.read()[1], channels="BGR")
     if button1:
         time.sleep(2)
-        background = cap.read()[1]
-    return background
+        return cap.read()[1]
 
 
 def Mask(cap):
