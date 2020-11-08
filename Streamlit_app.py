@@ -86,8 +86,8 @@ if option == 0:
             background image will be captured after 2 seconds.
             ''')
 
-    dict2 = {'Front': -1, 'Back': 0}
-    x = st.selectbox('Choose an option for your input camera', ('Front', 'Back'))
+    dict2 = {'Camera 1': -1, 'Camera 2': 0, 'Camera 3': 1, 'Camera 4': 2}
+    x = st.selectbox('Choose an option for your input camera', ('Camera 1', 'Camera 2', 'Camera 3', 'Camera 4'))
     x = dict2[x]
     cap = cv2.VideoCapture(x)
     
