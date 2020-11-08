@@ -13,6 +13,9 @@ def Camera(cap):
     if button1:
         time.sleep(2)
         return cap.read()[1]
+    cap.release()
+    st.write("Failed to load camera")
+    return None
 
 
 def Mask(cap):
@@ -91,8 +94,9 @@ if option == 0:
     background = Camera(cap)
     session_state.background = background
     session_state.cap = cap
-    st.image(background, channels="BGR")
-    st.write('This is the background image')
+    if background:
+        st.image(background, channels="BGR")
+        st.write('This is the background image')
 
 
 if option == 1:
