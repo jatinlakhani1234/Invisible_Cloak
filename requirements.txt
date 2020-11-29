@@ -1,4 +1,7 @@
+opencv-python-headless
 streamlit==0.70.0
 numpy==1.18.5
 opencv-contrib-python-headless
 libsm6 libxrender1 libfontconfig1
+!apt update && apt install libsm6 libxext6
+!apt-get install libxrender-dev
