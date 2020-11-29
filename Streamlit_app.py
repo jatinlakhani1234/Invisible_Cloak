@@ -1,5 +1,3 @@
-!apt update && apt install -y libsm6 libxext6
-!apt-get install -y libxrender-dev
 import cv2
 import numpy as np
 import time
